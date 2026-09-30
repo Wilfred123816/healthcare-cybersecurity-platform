@@ -1,0 +1,20 @@
+{
+    "dataset_version": "2.1",
+    "random_seed": 42,
+    "split": "validation",
+    "purpose": "Synthetic healthcare cybersecurity research dataset",
+    "data_source": "Synthetic data generated locally; no real patient data",
+    "statistics": {
+        "total_events": 721,
+        "normal_events": 700,
+        "attack_events": 21,
+        "poisoned_evidence": 4,
+        "evidence_records": 721,
+        "ground_truth_records": 721,
+        "attack_types": {
+            "credential_abuse": 12,
+            "data_exfiltration": 5,
+            "privilege_abuse": 4
+        }
+    }
+}
