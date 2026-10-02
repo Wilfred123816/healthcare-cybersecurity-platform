@@ -1,0 +1,19 @@
+{
+    "dataset_version": "2.1",
+    "random_seed": 42,
+    "split": "benchmark",
+    "purpose": "Synthetic healthcare cybersecurity research dataset",
+    "data_source": "Synthetic data generated locally; no real patient data",
+    "statistics": {
+        "total_events": 724,
+        "normal_events": 700,
+        "attack_events": 24,
+        "poisoned_evidence": 6,
+        "evidence_records": 724,
+        "ground_truth_records": 724,
+        "attack_types": {
+            "credential_abuse": 12,
+            "ransomware": 12
+        }
+    }
+}

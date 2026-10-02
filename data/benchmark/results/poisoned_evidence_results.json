@@ -1,0 +1,128 @@
+{
+  "benchmark": "poisoned_evidence_resistance",
+  "dataset": {
+    "version": "2.1",
+    "split": "benchmark",
+    "random_seed": 42,
+    "total_evidence": 724,
+    "poisoned_evidence": 6,
+    "clean_evidence": 718,
+    "poison_type_distribution": {
+      "stale_evidence": 4,
+      "provenance_issue": 2
+    }
+  },
+  "poisoned_evidence": {
+    "statistics": {
+      "count": 6,
+      "average_trust_score": 86.17,
+      "minimum_trust_score": 85.0,
+      "maximum_trust_score": 86.75,
+      "trust_levels": {
+        "medium": 6
+      }
+    },
+    "records_downgraded_below_high": 6,
+    "records_remaining_high_trust": 0
+  },
+  "clean_evidence": {
+    "statistics": {
+      "count": 718,
+      "average_trust_score": 98.75,
+      "minimum_trust_score": 98.75,
+      "maximum_trust_score": 98.75,
+      "trust_levels": {
+        "high": 718
+      }
+    }
+  },
+  "trust_difference": {
+    "clean_minus_poisoned": 12.58
+  },
+  "records": [
+    {
+      "evidence_id": "EVIDENCE-000003e9",
+      "event_id": "IDENTITY-000003e9",
+      "scenario_id": "SCENARIO-001",
+      "source_type": "identity",
+      "is_poisoned": true,
+      "poison_type": "stale_evidence",
+      "trust_score": 86.75,
+      "trust_level": "medium",
+      "provenance": "identity_provider",
+      "integrity_status": "valid",
+      "freshness_status": "stale",
+      "consistency_status": "consistent"
+    },
+    {
+      "evidence_id": "EVIDENCE-000003ea",
+      "event_id": "IDENTITY-000003ea",
+      "scenario_id": "SCENARIO-001",
+      "source_type": "identity",
+      "is_poisoned": true,
+      "poison_type": "stale_evidence",
+      "trust_score": 86.75,
+      "trust_level": "medium",
+      "provenance": "identity_provider",
+      "integrity_status": "valid",
+      "freshness_status": "stale",
+      "consistency_status": "consistent"
+    },
+    {
+      "evidence_id": "EVIDENCE-000003f6",
+      "event_id": "IDENTITY-000003f6",
+      "scenario_id": "SCENARIO-004",
+      "source_type": "identity",
+      "is_poisoned": true,
+      "poison_type": "provenance_issue",
+      "trust_score": 85.0,
+      "trust_level": "medium",
+      "provenance": "unknown",
+      "integrity_status": "valid",
+      "freshness_status": "fresh",
+      "consistency_status": "consistent"
+    },
+    {
+      "evidence_id": "EVIDENCE-000003f7",
+      "event_id": "IDENTITY-000003f7",
+      "scenario_id": "SCENARIO-004",
+      "source_type": "identity",
+      "is_poisoned": true,
+      "poison_type": "stale_evidence",
+      "trust_score": 86.75,
+      "trust_level": "medium",
+      "provenance": "identity_provider",
+      "integrity_status": "valid",
+      "freshness_status": "stale",
+      "consistency_status": "consistent"
+    },
+    {
+      "evidence_id": "EVIDENCE-00000c02",
+      "event_id": "NETWORK-000003ec",
+      "scenario_id": "SCENARIO-009",
+      "source_type": "network",
+      "is_poisoned": true,
+      "poison_type": "stale_evidence",
+      "trust_score": 86.75,
+      "trust_level": "medium",
+      "provenance": "network_sensor",
+      "integrity_status": "valid",
+      "freshness_status": "stale",
+      "consistency_status": "consistent"
+    },
+    {
+      "evidence_id": "EVIDENCE-00000e00",
+      "event_id": "EHR-000001f8",
+      "scenario_id": "SCENARIO-004",
+      "source_type": "ehr",
+      "is_poisoned": true,
+      "poison_type": "provenance_issue",
+      "trust_score": 85.0,
+      "trust_level": "medium",
+      "provenance": "unknown",
+      "integrity_status": "valid",
+      "freshness_status": "fresh",
+      "consistency_status": "consistent"
+    }
+  ]
+}

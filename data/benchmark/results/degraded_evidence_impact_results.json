@@ -1,0 +1,153 @@
+{
+  "benchmark": "degraded_evidence_impact",
+  "dataset": {
+    "version": "2.1",
+    "split": "benchmark",
+    "random_seed": 42,
+    "events_loaded": 724,
+    "evidence_records": 724,
+    "ground_truth_records": 724,
+    "scenarios": 5
+  },
+  "original": {
+    "dataset": {
+      "events_evaluated": 724,
+      "events_skipped_no_ground_truth": 0,
+      "events_skipped_no_evidence": 0,
+      "attack_events": 24,
+      "normal_events": 700
+    },
+    "confusion_matrix": {
+      "true_positive": 24,
+      "true_negative": 700,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    "metrics": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "average_trust_score": 98.65,
+    "decision_distribution": {
+      "normal_activity": 700,
+      "confirmed_threat": 18,
+      "probable_threat": 6
+    }
+  },
+  "profiles": {
+    "provenance_degraded": {
+      "metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "confusion_matrix": {
+        "true_positive": 24,
+        "true_negative": 700,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "average_trust_score": 84.93,
+      "trust_reduction_from_original": 13.72,
+      "decision_distribution": {
+        "normal_activity": 700,
+        "probable_threat": 24
+      },
+      "impact": {
+        "changed_decisions": 18,
+        "changed_threat_status": 0,
+        "decision_transitions": {
+          "confirmed_threat -> probable_threat": 18
+        }
+      }
+    },
+    "integrity_degraded": {
+      "metrics": {
+        "accuracy": 0.9917,
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.8571
+      },
+      "confusion_matrix": {
+        "true_positive": 18,
+        "true_negative": 700,
+        "false_positive": 0,
+        "false_negative": 6
+      },
+      "average_trust_score": 74.65,
+      "trust_reduction_from_original": 24.0,
+      "decision_distribution": {
+        "normal_activity": 700,
+        "probable_threat": 18,
+        "requires_verification": 6
+      },
+      "impact": {
+        "changed_decisions": 24,
+        "changed_threat_status": 6,
+        "decision_transitions": {
+          "confirmed_threat -> probable_threat": 18,
+          "probable_threat -> requires_verification": 6
+        }
+      }
+    },
+    "freshness_degraded": {
+      "metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "confusion_matrix": {
+        "true_positive": 24,
+        "true_negative": 700,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "average_trust_score": 86.71,
+      "trust_reduction_from_original": 11.94,
+      "decision_distribution": {
+        "normal_activity": 700,
+        "probable_threat": 24
+      },
+      "impact": {
+        "changed_decisions": 18,
+        "changed_threat_status": 0,
+        "decision_transitions": {
+          "confirmed_threat -> probable_threat": 18
+        }
+      }
+    },
+    "fully_degraded": {
+      "metrics": {
+        "accuracy": 0.9669,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0
+      },
+      "confusion_matrix": {
+        "true_positive": 0,
+        "true_negative": 700,
+        "false_positive": 0,
+        "false_negative": 24
+      },
+      "average_trust_score": 29.0,
+      "trust_reduction_from_original": 69.65,
+      "decision_distribution": {
+        "insufficient_evidence": 700,
+        "requires_verification": 24
+      },
+      "impact": {
+        "changed_decisions": 724,
+        "changed_threat_status": 24,
+        "decision_transitions": {
+          "normal_activity -> insufficient_evidence": 700,
+          "confirmed_threat -> requires_verification": 18,
+          "probable_threat -> requires_verification": 6
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,365 @@
+{
+  "benchmark": "21.10_system_level_benchmark",
+  "status": "completed",
+  "benchmark_components": {
+    "21.10.1": "baseline_detection",
+    "21.10.2": "trust_aware_detection",
+    "21.10.3": "baseline_vs_trust_aware",
+    "21.10.4": "poisoned_evidence_resistance",
+    "21.10.5": "degraded_evidence_impact",
+    "21.10.6": "api_performance",
+    "21.10.7": "api_scalability",
+    "21.10.8": "api_reliability"
+  },
+  "detection_performance": {
+    "baseline": {
+      "accuracy": 0.9834,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6667,
+      "true_positive": 12,
+      "true_negative": 700,
+      "false_positive": 0,
+      "false_negative": 12
+    },
+    "trust_aware": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positive": 24,
+      "true_negative": 700,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    "improvement": {
+      "accuracy_percentage_points": 1.66,
+      "precision_percentage_points": 0.0,
+      "recall_percentage_points": 50.0,
+      "f1_percentage_points": 33.33,
+      "additional_true_positives": 12,
+      "false_negative_reduction": 12
+    }
+  },
+  "poisoned_evidence": {
+    "total_evidence": 724,
+    "poisoned_evidence": 6,
+    "clean_evidence": 718,
+    "poison_type_distribution": {
+      "stale_evidence": 4,
+      "provenance_issue": 2
+    },
+    "poisoned_average_trust": 86.17,
+    "poisoned_minimum_trust": 85.0,
+    "poisoned_maximum_trust": 86.75,
+    "poisoned_downgraded_below_high": 6,
+    "clean_average_trust": 98.75,
+    "clean_minimum_trust": 98.75,
+    "clean_maximum_trust": 98.75,
+    "trust_difference": 12.58
+  },
+  "degraded_evidence": {
+    "provenance_degraded": {
+      "average_trust_score": 84.93,
+      "trust_reduction": 13.72,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "changed_decisions": 18,
+      "changed_threat_status": 0,
+      "decision_transitions": {
+        "confirmed_threat -> probable_threat": 18
+      }
+    },
+    "integrity_degraded": {
+      "average_trust_score": 74.65,
+      "trust_reduction": 24.0,
+      "accuracy": 0.9917,
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1": 0.8571,
+      "changed_decisions": 24,
+      "changed_threat_status": 6,
+      "decision_transitions": {
+        "confirmed_threat -> probable_threat": 18,
+        "probable_threat -> requires_verification": 6
+      }
+    },
+    "freshness_degraded": {
+      "average_trust_score": 86.71,
+      "trust_reduction": 11.94,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "changed_decisions": 18,
+      "changed_threat_status": 0,
+      "decision_transitions": {
+        "confirmed_threat -> probable_threat": 18
+      }
+    },
+    "fully_degraded": {
+      "average_trust_score": 29.0,
+      "trust_reduction": 69.65,
+      "accuracy": 0.9669,
+      "precision": 0,
+      "recall": 0.0,
+      "f1": 0,
+      "changed_decisions": 724,
+      "changed_threat_status": 24,
+      "decision_transitions": {
+        "normal_activity -> insufficient_evidence": 700,
+        "confirmed_threat -> requires_verification": 18,
+        "probable_threat -> requires_verification": 6
+      }
+    }
+  },
+  "api_performance": {
+    "health": {
+      "success_rate_percent": 100.0,
+      "average_latency_ms": 3.49,
+      "median_latency_ms": 3.23,
+      "p95_latency_ms": 5.53,
+      "maximum_latency_ms": 8.85
+    },
+    "dashboard_summary": {
+      "success_rate_percent": 100.0,
+      "average_latency_ms": 2610.72,
+      "median_latency_ms": 2510.18,
+      "p95_latency_ms": 4064.97,
+      "maximum_latency_ms": 5081.32
+    },
+    "unified_events": {
+      "success_rate_percent": 100.0,
+      "average_latency_ms": 94.82,
+      "median_latency_ms": 96.04,
+      "p95_latency_ms": 119.18,
+      "maximum_latency_ms": 152.81
+    },
+    "detection": {
+      "success_rate_percent": 100.0,
+      "average_latency_ms": 12.4,
+      "median_latency_ms": 9.94,
+      "p95_latency_ms": 29.96,
+      "maximum_latency_ms": 34.93
+    },
+    "trust_aware_detection": {
+      "success_rate_percent": 100.0,
+      "average_latency_ms": 17.6,
+      "median_latency_ms": 16.66,
+      "p95_latency_ms": 25.92,
+      "maximum_latency_ms": 37.23
+    },
+    "investigation": {
+      "success_rate_percent": 100.0,
+      "average_latency_ms": 17.33,
+      "median_latency_ms": 13.61,
+      "p95_latency_ms": 39.63,
+      "maximum_latency_ms": 49.78
+    },
+    "attack_path": {
+      "success_rate_percent": 100.0,
+      "average_latency_ms": 12.15,
+      "median_latency_ms": 11.86,
+      "p95_latency_ms": 13.59,
+      "maximum_latency_ms": 19.78
+    }
+  },
+  "api_scalability": {
+    "unified_events": {
+      "1": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 126.63,
+        "p95_latency_ms": 291.27,
+        "throughput_requests_per_second": 7.88
+      },
+      "5": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 464.24,
+        "p95_latency_ms": 599.46,
+        "throughput_requests_per_second": 10.05
+      },
+      "10": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 864.62,
+        "p95_latency_ms": 1206.12,
+        "throughput_requests_per_second": 9.7
+      }
+    },
+    "detection": {
+      "1": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 16.74,
+        "p95_latency_ms": 50.26,
+        "throughput_requests_per_second": 59.19
+      },
+      "5": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 40.17,
+        "p95_latency_ms": 45.61,
+        "throughput_requests_per_second": 119.93
+      },
+      "10": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 144.47,
+        "p95_latency_ms": 283.87,
+        "throughput_requests_per_second": 61.89
+      }
+    },
+    "trust_aware_detection": {
+      "1": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 19.91,
+        "p95_latency_ms": 31.65,
+        "throughput_requests_per_second": 49.87
+      },
+      "5": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 64.16,
+        "p95_latency_ms": 81.42,
+        "throughput_requests_per_second": 73.04
+      },
+      "10": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 165.3,
+        "p95_latency_ms": 291.51,
+        "throughput_requests_per_second": 53.1
+      }
+    },
+    "investigation": {
+      "1": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 12.45,
+        "p95_latency_ms": 14.23,
+        "throughput_requests_per_second": 79.37
+      },
+      "5": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 76.89,
+        "p95_latency_ms": 169.0,
+        "throughput_requests_per_second": 63.21
+      },
+      "10": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 152.79,
+        "p95_latency_ms": 313.7,
+        "throughput_requests_per_second": 57.78
+      }
+    },
+    "attack_path": {
+      "1": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 11.08,
+        "p95_latency_ms": 13.01,
+        "throughput_requests_per_second": 88.42
+      },
+      "5": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 41.89,
+        "p95_latency_ms": 48.04,
+        "throughput_requests_per_second": 115.75
+      },
+      "10": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 218.62,
+        "p95_latency_ms": 439.1,
+        "throughput_requests_per_second": 38.61
+      }
+    }
+  },
+  "api_reliability": {
+    "overall": {
+      "total_requests": 350,
+      "successful_requests": 350,
+      "failed_requests": 0,
+      "success_rate_percent": 100.0,
+      "benchmark_duration_seconds": 171.74
+    },
+    "endpoints": {
+      "health": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 9.78,
+        "p95_latency_ms": 20.46,
+        "latency_drift_ms": -9.52,
+        "latency_drift_percent": -65.47
+      },
+      "dashboard_summary": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 3241.66,
+        "p95_latency_ms": 5122.83,
+        "latency_drift_ms": 130.27,
+        "latency_drift_percent": 4.1
+      },
+      "unified_events": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 122.6,
+        "p95_latency_ms": 280.35,
+        "latency_drift_ms": -56.49,
+        "latency_drift_percent": -37.45
+      },
+      "detection": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 10.59,
+        "p95_latency_ms": 12.41,
+        "latency_drift_ms": -0.76,
+        "latency_drift_percent": -6.93
+      },
+      "trust_aware_detection": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 20.76,
+        "p95_latency_ms": 36.84,
+        "latency_drift_ms": -3.88,
+        "latency_drift_percent": -17.09
+      },
+      "investigation": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 14.72,
+        "p95_latency_ms": 31.5,
+        "latency_drift_ms": 5.92,
+        "latency_drift_percent": 50.34
+      },
+      "attack_path": {
+        "success_rate_percent": 100.0,
+        "average_latency_ms": 13.53,
+        "p95_latency_ms": 34.21,
+        "latency_drift_ms": -5.01,
+        "latency_drift_percent": -31.25
+      }
+    }
+  },
+  "findings": [
+    {
+      "finding": "Trust-aware detection substantially improved attack detection on the benchmark dataset.",
+      "evidence": "Recall increased from 50.00% to 100.00%."
+    },
+    {
+      "finding": "Trust-aware detection reduced false negatives on the evaluated benchmark events.",
+      "evidence": "False negatives decreased from 12 to 0."
+    },
+    {
+      "finding": "Poisoned evidence received lower trust than clean evidence.",
+      "evidence": "Average poisoned trust was 86.17, compared with 98.75 for clean evidence."
+    },
+    {
+      "finding": "The unified-events endpoint showed higher latency under concurrent load.",
+      "evidence": "The scalability benchmark recorded increasing latency as concurrency increased."
+    },
+    {
+      "finding": "The dashboard summary endpoint is the main measured API latency bottleneck.",
+      "evidence": "Its average latency was substantially higher than the other tested endpoints."
+    },
+    {
+      "finding": "The API remained reliable under the tested sequential and concurrent workloads.",
+      "evidence": "All measured scalability and reliability requests succeeded."
+    }
+  ],
+  "limitations": [
+    "The benchmark dataset is synthetic data generated locally.",
+    "The results do not establish performance on unseen real-world healthcare data.",
+    "The trust-aware and scenario-correlation rules were developed around the generated attack scenarios.",
+    "The 100% trust-aware detection result should therefore not be interpreted as guaranteed generalisation.",
+    "API measurements were performed on the local development environment rather than production cloud infrastructure.",
+    "The dashboard summary endpoint exhibited substantially higher latency than the other measured endpoints."
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "benchmark": "api_performance",
+  "configuration": {
+    "base_url": "http://127.0.0.1:8000",
+    "requests_per_endpoint": 30,
+    "warmup_requests": 3,
+    "timeout_seconds": 15
+  },
+  "endpoints": {
+    "health": {
+      "path": "/api/health",
+      "requests": 30,
+      "successful_requests": 30,
+      "failed_requests": 0,
+      "success_rate_percent": 100.0,
+      "latency_ms": {
+        "minimum": 2.14,
+        "average": 3.49,
+        "median": 3.23,
+        "p95": 5.53,
+        "maximum": 8.85
+      },
+      "status_codes": {
+        "200": 30
+      },
+      "errors": []
+    },
+    "dashboard_summary": {
+      "path": "/api/dashboard/summary",
+      "requests": 30,
+      "successful_requests": 30,
+      "failed_requests": 0,
+      "success_rate_percent": 100.0,
+      "latency_ms": {
+        "minimum": 1962.84,
+        "average": 2610.72,
+        "median": 2510.18,
+        "p95": 4064.97,
+        "maximum": 5081.32
+      },
+      "status_codes": {
+        "200": 30
+      },
+      "errors": []
+    },
+    "unified_events": {
+      "path": "/api/unified/events",
+      "requests": 30,
+      "successful_requests": 30,
+      "failed_requests": 0,
+      "success_rate_percent": 100.0,
+      "latency_ms": {
+        "minimum": 58.03,
+        "average": 94.82,
+        "median": 96.04,
+        "p95": 119.18,
+        "maximum": 152.81
+      },
+      "status_codes": {
+        "200": 30
+      },
+      "errors": []
+    },
+    "detection": {
+      "path": "/api/detection/event/EHR-000001f9",
+      "requests": 30,
+      "successful_requests": 30,
+      "failed_requests": 0,
+      "success_rate_percent": 100.0,
+      "latency_ms": {
+        "minimum": 7.9,
+        "average": 12.4,
+        "median": 9.94,
+        "p95": 29.96,
+        "maximum": 34.93
+      },
+      "status_codes": {
+        "200": 30
+      },
+      "errors": []
+    },
+    "trust_aware_detection": {
+      "path": "/api/trust-aware/event/EHR-000001f9",
+      "requests": 30,
+      "successful_requests": 30,
+      "failed_requests": 0,
+      "success_rate_percent": 100.0,
+      "latency_ms": {
+        "minimum": 10.84,
+        "average": 17.6,
+        "median": 16.66,
+        "p95": 25.92,
+        "maximum": 37.23
+      },
+      "status_codes": {
+        "200": 30
+      },
+      "errors": []
+    },
+    "investigation": {
+      "path": "/api/investigation/scenario/SCENARIO-005",
+      "requests": 30,
+      "successful_requests": 30,
+      "failed_requests": 0,
+      "success_rate_percent": 100.0,
+      "latency_ms": {
+        "minimum": 10.78,
+        "average": 17.33,
+        "median": 13.61,
+        "p95": 39.63,
+        "maximum": 49.78
+      },
+      "status_codes": {
+        "200": 30
+      },
+      "errors": []
+    },
+    "attack_path": {
+      "path": "/api/investigation/scenario/SCENARIO-005/attack-path",
+      "requests": 30,
+      "successful_requests": 30,
+      "failed_requests": 0,
+      "success_rate_percent": 100.0,
+      "latency_ms": {
+        "minimum": 9.28,
+        "average": 12.15,
+        "median": 11.86,
+        "p95": 13.59,
+        "maximum": 19.78
+      },
+      "status_codes": {
+        "200": 30
+      },
+      "errors": []
+    }
+  },
+  "overall": {
+    "total_requests": 210,
+    "successful_requests": 210,
+    "failed_requests": 0,
+    "success_rate_percent": 100.0,
+    "benchmark_duration_seconds": 90.56
+  }
+}
