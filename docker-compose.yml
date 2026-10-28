@@ -1,0 +1,105 @@
+services:
+
+  db:
+    image: postgres:18
+    container_name: healthcare-cyber-db
+
+    env_file:
+      - .env.docker
+
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U postgres -d healthcare_cyber_db"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+    restart: unless-stopped
+
+
+  init-db:
+    build:
+      context: .
+      dockerfile: Backend/Dockerfile
+
+    container_name: healthcare-cyber-db-init
+
+    env_file:
+      - .env.docker
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+    command:
+      [
+        "python",
+        "scripts/docker/init_database.py"
+      ]
+
+    restart: "no"
+
+
+  backend:
+    build:
+      context: .
+      dockerfile: Backend/Dockerfile
+
+    container_name: healthcare-cyber-backend
+
+    env_file:
+      - .env.docker
+
+    depends_on:
+      db:
+        condition: service_healthy
+      init-db:
+        condition: service_completed_successfully
+
+    expose:
+      - "8000"
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health')"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+    restart: unless-stopped
+
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ""
+
+    container_name: healthcare-cyber-frontend
+
+    depends_on:
+      backend:
+        condition: service_healthy
+
+    ports:
+      - "8080:80"
+
+    restart: unless-stopped
+
+
+volumes:
+  postgres_data:
