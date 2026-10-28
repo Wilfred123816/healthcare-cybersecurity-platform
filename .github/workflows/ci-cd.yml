@@ -31,6 +31,8 @@ jobs:
 
       - name: Check Python syntax
         run: python -m compileall -q Backend scripts
+      - name: Run backend tests
+        run: python -m pytest tests -v
 
       - name: Set up Node.js
         uses: actions/setup-node@v4

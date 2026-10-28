@@ -1,6 +1,9 @@
+
 fastapi
 uvicorn
 sqlalchemy
 psycopg[binary]
 python-dotenv
 pandas
+pytest
+httpx
