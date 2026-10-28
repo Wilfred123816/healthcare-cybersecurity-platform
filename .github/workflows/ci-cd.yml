@@ -35,6 +35,8 @@ jobs:
         run: python -m compileall -q Backend scripts
 
       - name: Run backend tests
+        env:
+          DATABASE_URL: postgresql://ci_user:ci_password@localhost:5432/ci_database
         run: python -m pytest tests -v
 
       - name: Set up Node.js
