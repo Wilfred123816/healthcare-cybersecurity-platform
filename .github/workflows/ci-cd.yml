@@ -1,4 +1,5 @@
-﻿name: Healthcare Cybersecurity CI/CD
+﻿
+name: Healthcare Cybersecurity CI/CD
 
 on:
   push:
@@ -15,6 +16,7 @@ jobs:
   validate:
     name: Validate application
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,10 +29,11 @@ jobs:
       - name: Install backend dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          python -m pip install -r requirements.txt
 
       - name: Check Python syntax
         run: python -m compileall -q Backend scripts
+
       - name: Run backend tests
         run: python -m pytest tests -v
 
@@ -57,6 +60,7 @@ jobs:
     name: Verify Docker images
     runs-on: ubuntu-latest
     needs: validate
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -72,9 +76,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: docker-build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
     permissions:
       contents: read
       packages: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
